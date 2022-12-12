@@ -1,0 +1,26 @@
+{
+  "name": "@stt/root",
+  "private": true,
+  "workspaces": [
+    "packages/**"
+  ],
+  "devDependencies": {
+    "lerna": "^6.1.0"
+  },
+  "scripts": {
+    "setup": "lerna bootstrap && lerna run build && lerna clean --yes && lerna bootstrap",
+    "build": "lerna run build",
+    "verify": "lerna run lint && lerna run test && lerna run typescript",
+    "prettier": "prettier --config prettier.config.js --write \"packages/**/*.{ts,tsx}\"",
+    "test": "lerna run test",
+    "test:parallel": "lerna run test --parallel",
+    "coverage": "yarn test --coverage",
+    "start": "lerna run start --parallel"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@lerna/bootstrap": "^6.0.3"
+  }
+}
